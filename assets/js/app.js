@@ -33,6 +33,14 @@ const ui = {
     objective: "Objetivo de aprendizaje",
     essentials: "Ideas esenciales",
     activity: "Actividad interactiva",
+    campusCase: "Caso del campus",
+    situation: "Situación",
+    safeResponse: "Respuesta recomendada",
+    learningPath: "Ruta de aprendizaje",
+    pathRisk: "Comprende el riesgo",
+    pathSignals: "Identifica las señales",
+    pathDecision: "Toma una decisión",
+    pathAction: "Actúa con seguridad",
     check: "Comprobar respuesta",
     retry: "Reintentar",
     previous: "Anterior",
@@ -40,6 +48,12 @@ const ui = {
     source: "Fuente institucional",
     correct: "¡Muy bien! La respuesta aplica las prácticas recomendadas.",
     incorrect: "Todavía hay una opción por revisar. Consulta las ideas esenciales e inténtalo nuevamente.",
+    why: "¿Por qué?",
+    result: "Resumen de resultados",
+    score: "Resultado",
+    mastered: "Tema dominado",
+    reinforce: "Tema para reforzar",
+    noAnswer: "Selecciona al menos una opción antes de comprobar la respuesta.",
     reveal: "Selecciona una tarjeta para descubrir la recomendación.",
     moveUp: "Mover hacia arriba",
     moveDown: "Mover hacia abajo",
@@ -61,6 +75,14 @@ const ui = {
     objective: "Learning objective",
     essentials: "Essential ideas",
     activity: "Interactive activity",
+    campusCase: "Campus case",
+    situation: "Situation",
+    safeResponse: "Recommended response",
+    learningPath: "Learning path",
+    pathRisk: "Understand the risk",
+    pathSignals: "Identify the signs",
+    pathDecision: "Make a decision",
+    pathAction: "Act safely",
     check: "Check answer",
     retry: "Try again",
     previous: "Previous",
@@ -68,6 +90,12 @@ const ui = {
     source: "Institutional source",
     correct: "Great job! Your answer applies the recommended practices.",
     incorrect: "One choice still needs review. Read the essential ideas and try again.",
+    why: "Why?",
+    result: "Results summary",
+    score: "Score",
+    mastered: "Topic mastered",
+    reinforce: "Topic to reinforce",
+    noAnswer: "Select at least one option before checking your answer.",
     reveal: "Select a card to discover the recommendation.",
     moveUp: "Move up",
     moveDown: "Move down",
@@ -79,6 +107,7 @@ const ui = {
 const modules = [
   {
     number: 1,
+    icon: "identity",
     title: { es: "Identidad digital", en: "Digital Identity" },
     description: { es: "Protege tus cuentas con credenciales resistentes y autenticación adicional.", en: "Protect your accounts with resilient credentials and additional authentication." },
     image: "assets/images/digital-identity.webp",
@@ -86,6 +115,7 @@ const modules = [
   },
   {
     number: 2,
+    icon: "social",
     title: { es: "Ingeniería social", en: "Social Engineering" },
     description: { es: "Reconoce mensajes, enlaces y archivos diseñados para engañarte.", en: "Recognize messages, links, and files designed to deceive you." },
     image: "assets/images/social-engineering.webp",
@@ -93,6 +123,7 @@ const modules = [
   },
   {
     number: 3,
+    icon: "privacy",
     title: { es: "Protección de la privacidad", en: "Privacy Protection" },
     description: { es: "Reduce tu exposición y controla el acceso a tus datos personales.", en: "Reduce your exposure and control access to your personal data." },
     image: "assets/images/privacy.webp",
@@ -100,6 +131,7 @@ const modules = [
   },
   {
     number: 4,
+    icon: "cloud",
     title: { es: "Nube e inteligencia artificial", en: "Cloud and Artificial Intelligence" },
     description: { es: "Comparte información con criterio y utiliza la IA de manera responsable.", en: "Share information carefully and use AI responsibly." },
     image: "assets/images/cloud-ai.webp",
@@ -107,6 +139,7 @@ const modules = [
   },
   {
     number: 5,
+    icon: "response",
     title: { es: "Uso seguro y respuesta", en: "Safe Use and Response" },
     description: { es: "Protege tus dispositivos y actúa correctamente cuando algo sale mal.", en: "Protect your devices and respond correctly when something goes wrong." },
     image: "assets/images/devices-response.webp",
@@ -361,6 +394,109 @@ const lessons = {
   }
 };
 
+const lessonEnhancements = {
+  passwords: {
+    scenario: {
+      situation: { es: "Un estudiante utiliza la misma contraseña para el correo institucional, la plataforma académica y una red social. La red social sufre una filtración.", en: "A student uses the same password for institutional email, the learning platform, and a social network. The social network suffers a data breach." },
+      response: { es: "Cambiar inmediatamente las credenciales reutilizadas, crear frases de paso únicas, activar MFA y almacenarlas en un gestor confiable.", en: "Immediately change every reused credential, create unique passphrases, enable MFA, and store them in a trusted manager." }
+    },
+    feedback: {
+      correct: { es: "Las frases largas y únicas reducen la reutilización de credenciales, y un gestor confiable permite almacenarlas sin compartirlas ni memorizarlas todas.", en: "Long, unique passphrases reduce credential reuse, and a trusted manager stores them without sharing or memorizing every password." },
+      incorrect: { es: "Una contraseña reutilizada o compartida puede comprometer varias cuentas. Revisa cuáles opciones mantienen cada credencial única y privada.", en: "A reused or shared password can compromise several accounts. Review which options keep every credential unique and private." }
+    }
+  },
+  mfa: {
+    scenario: {
+      situation: { es: "Después de iniciar una clase, llegan varias solicitudes de aprobación al teléfono del estudiante, aunque él no está intentando ingresar a ninguna cuenta.", en: "After class begins, a student receives repeated approval requests on a phone even though the student is not trying to sign in." },
+      response: { es: "Rechazar las solicitudes, cambiar la contraseña desde un dispositivo confiable y reportar el intento. Nunca aprobar por cansancio o presión.", en: "Reject the requests, change the password from a trusted device, and report the attempt. Never approve because of fatigue or pressure." }
+    },
+    feedback: {
+      correct: { es: "Las passkeys y llaves de seguridad verifican el servicio legítimo y ofrecen mayor resistencia al phishing que preguntas o códigos enviados por canales vulnerables.", en: "Passkeys and security keys verify the legitimate service and resist phishing better than questions or codes sent through vulnerable channels." },
+      incorrect: { es: "Una pregunta, un código de correo o una segunda contraseña pueden ser robados mediante engaño. Revisa el método que valida también el sitio legítimo.", en: "A security question, email code, or second password can be stolen through deception. Review which method also validates the legitimate site." }
+    }
+  },
+  phishing: {
+    scenario: {
+      situation: { es: "Un mensaje que aparenta venir de Registro y Control advierte que la cuenta universitaria será suspendida en treinta minutos y solicita iniciar sesión mediante un enlace acortado.", en: "A message pretending to be from the registrar warns that a university account will be suspended in thirty minutes and asks the student to sign in through a shortened link." },
+      response: { es: "No abrir el enlace. Verificar la novedad entrando directamente al portal institucional y reportar el mensaje por el canal oficial.", en: "Do not open the link. Verify the notice by entering the institutional portal directly and report the message through the official channel." }
+    },
+    feedback: {
+      correct: { es: "La urgencia, el enlace acortado y la solicitud de iniciar sesión desde el mensaje son señales combinadas de suplantación.", en: "Urgency, a shortened link, and a request to sign in from the message are combined signs of impersonation." },
+      incorrect: { es: "Un saludo no demuestra fraude por sí solo. Concéntrate en la presión, el destino oculto del enlace y la solicitud de credenciales.", en: "A greeting alone does not prove fraud. Focus on pressure, the hidden link destination, and the credential request." }
+    }
+  },
+  links: {
+    scenario: {
+      situation: { es: "En el grupo del curso aparece un archivo llamado “Notas_finales.zip” enviado desde una cuenta desconocida, acompañado de la instrucción de desactivar el antivirus.", en: "A file named “Final_grades.zip” appears in the course group from an unknown account, together with an instruction to disable antivirus protection." },
+      response: { es: "No descargar ni ejecutar el archivo. Confirmar la información con el docente por un canal conocido y reportar el mensaje.", en: "Do not download or run the file. Confirm the information with the lecturer through a known channel and report the message." }
+    },
+    feedback: {
+      correct: { es: "Entrar directamente a la aplicación o escribir el dominio oficial evita depender de un enlace que podría ocultar un sitio falso.", en: "Opening the official app or typing the official domain avoids relying on a link that may hide a fake site." },
+      incorrect: { es: "El logotipo y el nombre del remitente pueden copiarse. Verifica siempre mediante la aplicación o el sitio oficial escrito por ti.", en: "A logo and sender name can be copied. Always verify through the official app or a website address you type yourself." }
+    }
+  },
+  footprint: {
+    scenario: {
+      situation: { es: "Antes de salir de viaje académico, una estudiante publica su carné, itinerario, ubicación en tiempo real y fotografías con metadatos activos.", en: "Before an academic trip, a student posts an ID card, itinerary, real-time location, and photos with active metadata." },
+      response: { es: "Eliminar datos identificables, desactivar la ubicación, limitar la audiencia y publicar información del viaje solo cuando ya no represente un riesgo.", en: "Remove identifying data, disable location, limit the audience, and post trip information only when it no longer creates a risk." }
+    },
+    feedback: {
+      correct: { es: "Cada tarjeta relaciona un rastro digital con una medida concreta de minimización, revisión o eliminación.", en: "Each card connects a digital trace with a concrete minimization, review, or deletion measure." },
+      incorrect: { es: "Abre todas las tarjetas para reconocer cómo reducir la exposición asociada con cada rastro digital.", en: "Open every card to recognize how to reduce the exposure associated with each digital trace." }
+    }
+  },
+  permissions: {
+    scenario: {
+      situation: { es: "Una aplicación para consultar horarios solicita acceso permanente a la ubicación, los contactos, el micrófono y todos los archivos del teléfono.", en: "An app for checking class schedules requests permanent access to location, contacts, microphone, and every file on the phone." },
+      response: { es: "Negar los permisos que no se relacionan con la función, buscar una alternativa confiable y revisar periódicamente los accesos concedidos.", en: "Deny permissions unrelated to the function, look for a trusted alternative, and periodically review granted access." }
+    },
+    feedback: {
+      correct: { es: "Aplicaste el principio de mínimo privilegio: cada aplicación recibe únicamente el acceso necesario para su función.", en: "You applied least privilege: every app receives only the access required for its function." },
+      incorrect: { es: "Compara la función declarada con el dato solicitado. La ubicación de un mapa y el micrófono de una videollamada tienen una finalidad clara; los contactos de una linterna o un juego no.", en: "Compare the declared function with the requested data. Map location and a video-call microphone have a clear purpose; flashlight or game contacts do not." }
+    }
+  },
+  cloud: {
+    scenario: {
+      situation: { es: "Un grupo comparte mediante un enlace público una carpeta que contiene el borrador de investigación, datos de participantes y documentos internos.", en: "A group uses a public link to share a folder containing a research draft, participant data, and internal documents." },
+      response: { es: "Restringir el acceso a integrantes identificados, asignar solo los permisos necesarios, separar la información sensible y retirar el acceso al finalizar.", en: "Restrict access to identified members, assign only required permissions, separate sensitive information, and remove access when the work ends." }
+    },
+    feedback: {
+      correct: { es: "El acceso para personas específicas y con permisos mínimos reduce la exposición y permite retirar el acceso cuando termina el trabajo.", en: "Access for specific people with minimum permissions reduces exposure and can be removed when the work ends." },
+      incorrect: { es: "Un enlace público o una contraseña compartida elimina el control sobre quién accede. Revisa la opción que identifica usuarios y limita permisos.", en: "A public link or shared password removes control over access. Review the option that identifies users and limits permissions." }
+    }
+  },
+  ai: {
+    scenario: {
+      situation: { es: "Para resumir una investigación, un estudiante piensa copiar en una IA pública una base de datos con nombres, correos y respuestas de sus compañeros.", en: "To summarize research, a student plans to paste a database containing classmates' names, emails, and responses into a public AI service." },
+      response: { es: "No cargar los datos personales. Utilizar información ficticia o anonimizada, aplicar las políticas institucionales y verificar posteriormente el resultado.", en: "Do not upload personal data. Use fictional or anonymized information, follow institutional policies, and verify the output afterward." }
+    },
+    feedback: {
+      correct: { es: "Los ejemplos ficticios y documentos públicos pueden utilizarse con revisión; las contraseñas y los datos personales o clínicos no deben compartirse.", en: "Fictional examples and public documents may be used with review; passwords and personal or medical data must not be shared." },
+      incorrect: { es: "Antes de copiar información en una IA pública, identifica si contiene credenciales, datos personales, información de terceros o material restringido.", en: "Before pasting information into a public AI service, identify credentials, personal data, third-party information, or restricted material." }
+    }
+  },
+  networks: {
+    scenario: {
+      situation: { es: "En una cafetería cercana al campus aparecen dos redes con nombres casi idénticos. Una de ellas no requiere contraseña y solicita ignorar una advertencia de certificado.", en: "At a café near campus, two networks have almost identical names. One requires no password and asks users to ignore a certificate warning." },
+      response: { es: "Confirmar el nombre con el establecimiento, no ignorar alertas, evitar operaciones sensibles y utilizar datos móviles si no es posible verificar la red.", en: "Confirm the network name with staff, do not ignore warnings, avoid sensitive operations, and use mobile data when the network cannot be verified." }
+    },
+    feedback: {
+      correct: { es: "Confirmar la red, revisar HTTPS y evitar la conexión automática reduce el riesgo de conectarse a un punto falso o inseguro.", en: "Confirming the network, checking HTTPS, and disabling auto-connect reduce the risk of joining a fake or unsafe access point." },
+      incorrect: { es: "Desactivar actualizaciones debilita el dispositivo. Revisa las acciones que verifican la red y mantienen activas las protecciones.", en: "Disabling updates weakens the device. Review the actions that verify the network and keep protections active." }
+    }
+  },
+  response: {
+    scenario: {
+      situation: { es: "Un estudiante nota inicios de sesión desconocidos, mensajes enviados desde su correo institucional y cambios que no reconoce en la cuenta.", en: "A student notices unknown sign-ins, messages sent from the institutional email account, and unrecognized account changes." },
+      response: { es: "Desde un dispositivo seguro, reportar y contener, cambiar credenciales, cerrar sesiones, activar MFA, conservar evidencias y revisar la recuperación.", en: "From a safe device, report and contain, change credentials, close sessions, enable MFA, preserve evidence, and review recovery." }
+    },
+    feedback: {
+      correct: { es: "La secuencia prioriza contener y reportar antes de recuperar, y termina documentando lo ocurrido para evitar una repetición.", en: "The sequence prioritizes containment and reporting before recovery, then documents the incident to prevent recurrence." },
+      incorrect: { es: "Primero se contiene y reporta; después se protegen las credenciales, se revisa la actividad y finalmente se documentan las mejoras.", en: "First contain and report; then protect credentials, review activity, and finally document improvements." }
+    }
+  }
+};
+
 const references = [
   { type: "institution", es: "Cybersecurity and Infrastructure Security Agency. (s. f.). Secure Our World.", en: "Cybersecurity and Infrastructure Security Agency. (n.d.). Secure Our World.", url: "https://www.cisa.gov/secure-our-world" },
   { type: "institution", es: "Cybersecurity and Infrastructure Security Agency. (s. f.). Manage application permissions for privacy and security.", en: "Cybersecurity and Infrastructure Security Agency. (n.d.). Manage application permissions for privacy and security.", url: "https://www.cisa.gov/resources-tools/training/manage-application-permissions-privacy-and-security" },
@@ -389,6 +525,50 @@ function setLanguage(nextLang) {
 function t(value) { return value?.[lang] ?? value?.es ?? ""; }
 
 function moduleForPage(page) { return modules.find((module) => module.pages.includes(page)); }
+
+const iconPaths = {
+  identity: '<path d="M12 3 19 6v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6z"/><path d="m9 12 2 2 4-4"/>',
+  social: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/><path d="M18 3v4M18 10h.01"/>',
+  privacy: '<path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.5"/><path d="M16.5 17.5v3M19.5 17.5v3"/>',
+  cloud: '<path d="M7 18h10a4 4 0 0 0 .5-8A6 6 0 0 0 6 8.5 4.5 4.5 0 0 0 7 18z"/><rect x="9" y="13" width="6" height="5" rx="1"/><path d="M10.5 13v-1.2a1.5 1.5 0 0 1 3 0V13"/>',
+  response: '<path d="M12 3 19 6v5c0 4.8-2.8 8-7 10-4.2-2-7-5.2-7-10V6z"/><path d="M12 8v4l2.5 1.5M8 17l-2 2-1-1"/>'
+};
+
+function iconMarkup(name, extraClass = "") {
+  return `<span class="module-icon ${extraClass}" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${iconPaths[name] || iconPaths.identity}</svg></span>`;
+}
+
+function learningPathMarkup() {
+  const steps = [ui[lang].pathRisk, ui[lang].pathSignals, ui[lang].pathDecision, ui[lang].pathAction];
+  return `<section class="learning-path" aria-label="${ui[lang].learningPath}">
+    <p class="learning-path-title">${ui[lang].learningPath}</p>
+    <ol>${steps.map((step, index) => `<li><span>${index + 1}</span>${step}</li>`).join("")}</ol>
+  </section>`;
+}
+
+function scenarioMarkup(page) {
+  const scenario = lessonEnhancements[page].scenario;
+  return `<section class="campus-case" aria-labelledby="campus-case-title">
+    <div class="campus-case-icon">${iconMarkup(moduleForPage(page).icon, "module-icon-large")}</div>
+    <div>
+      <p class="eyebrow">${ui[lang].campusCase}</p>
+      <h2 id="campus-case-title">${ui[lang].situation}</h2>
+      <p>${t(scenario.situation)}</p>
+      <h3>${ui[lang].safeResponse}</h3>
+      <p>${t(scenario.response)}</p>
+    </div>
+  </section>`;
+}
+
+function resultMarkup() {
+  return `<section class="result-summary" hidden tabindex="-1" aria-live="polite">
+    <p class="eyebrow">${ui[lang].result}</p>
+    <div class="result-summary-grid">
+      <div class="result-score"><strong data-result-score>0/0</strong><span>${ui[lang].score}</span></div>
+      <div><h3 data-result-title></h3><p data-result-copy></p></div>
+    </div>
+  </section>`;
+}
 
 function allNavLinks() {
   return modules.flatMap((module) => module.pages.map((page) => ({ page, module })));
@@ -437,7 +617,7 @@ function footerMarkup() {
 function homeMarkup() {
   const cards = modules.map((module) => `
     <article class="module-card">
-      <span class="module-number">${ui[lang].module} ${module.number}</span>
+      <div class="module-card-heading">${iconMarkup(module.icon)}<span class="module-number">${ui[lang].module} ${module.number}</span></div>
       <h3>${t(module.title)}</h3>
       <p>${t(module.description)}</p>
       <div class="module-links">
@@ -474,16 +654,16 @@ function activityMarkup(activity) {
     return `<div class="activity-options">${activity.options.map((option, index) => `
       <label class="option-row"><input type="${inputType}" name="activity-option" value="${index}"><span>${t(option.label)}</span></label>`).join("")}</div>
       <div class="activity-controls"><button class="button button-primary" type="button" data-action="check-options">${ui[lang].check}</button><button class="button button-secondary" type="button" data-action="reset-activity">${ui[lang].retry}</button></div>
-      <div class="feedback" role="status" aria-live="polite"></div>`;
+      <div class="feedback" role="status" aria-live="polite"></div>${resultMarkup()}`;
   }
   if (activity.type === "reveal") {
-    return `<p>${ui[lang].reveal}</p><div class="reveal-grid">${activity.cards.map((card) => `<button class="reveal-card" type="button"><strong>${t(card.front)}</strong><span data-front="${t(card.front)}" data-back="${t(card.back)}">${lang === "es" ? "Mostrar recomendación" : "Show recommendation"}</span></button>`).join("")}</div>`;
+    return `<p>${ui[lang].reveal}</p><div class="reveal-grid">${activity.cards.map((card) => `<button class="reveal-card" type="button" aria-expanded="false"><strong>${t(card.front)}</strong><span data-front="${t(card.front)}" data-back="${t(card.back)}">${lang === "es" ? "Mostrar recomendación" : "Show recommendation"}</span></button>`).join("")}</div><div class="feedback" role="status" aria-live="polite"></div>${resultMarkup()}`;
   }
   if (activity.type === "classify") {
-    return `<div class="classify-grid">${activity.items.map((item, index) => `<article class="choice-card" data-expected="${item.expected}" data-index="${index}"><p>${t(item.label)}</p><div class="choice-actions"><button class="button button-secondary" type="button" data-choice="yes">${t(activity.choices.yes)}</button><button class="button button-secondary" type="button" data-choice="no">${t(activity.choices.no)}</button></div></article>`).join("")}</div><div class="feedback" role="status" aria-live="polite"></div>`;
+    return `<div class="classify-grid">${activity.items.map((item, index) => `<article class="choice-card" data-expected="${item.expected}" data-index="${index}"><p>${t(item.label)}</p><div class="choice-actions"><button class="button button-secondary" type="button" data-choice="yes">${t(activity.choices.yes)}</button><button class="button button-secondary" type="button" data-choice="no">${t(activity.choices.no)}</button></div><p class="choice-result" aria-live="polite"></p></article>`).join("")}</div><div class="feedback" role="status" aria-live="polite"></div>${resultMarkup()}`;
   }
   if (activity.type === "order") {
-    return `<ol class="order-list">${activity.items.map((item) => `<li class="order-item" data-rank="${item.rank}"><span>${t(item.label)}</span><span class="order-buttons"><button type="button" data-move="up" aria-label="${ui[lang].moveUp}">↑</button><button type="button" data-move="down" aria-label="${ui[lang].moveDown}">↓</button></span></li>`).join("")}</ol><div class="activity-controls"><button class="button button-primary" type="button" data-action="check-order">${ui[lang].check}</button><button class="button button-secondary" type="button" data-action="reset-activity">${ui[lang].retry}</button></div><div class="feedback" role="status" aria-live="polite"></div>`;
+    return `<ol class="order-list">${activity.items.map((item) => `<li class="order-item" data-rank="${item.rank}"><span>${t(item.label)}</span><span class="order-buttons"><button type="button" data-move="up" aria-label="${ui[lang].moveUp}">↑</button><button type="button" data-move="down" aria-label="${ui[lang].moveDown}">↓</button></span></li>`).join("")}</ol><div class="activity-controls"><button class="button button-primary" type="button" data-action="check-order">${ui[lang].check}</button><button class="button button-secondary" type="button" data-action="reset-activity">${ui[lang].retry}</button></div><div class="feedback" role="status" aria-live="polite"></div>${resultMarkup()}`;
   }
   return "";
 }
@@ -501,9 +681,10 @@ function lessonMarkup(page) {
         <div class="progress-track"><div class="progress-bar" style="width:${position * 10}%"></div></div>
       </div>
       <section class="hero lesson-hero">
-        <div class="hero-copy"><p class="eyebrow">${ui[lang].module} ${module.number} · ${t(module.title)}</p><h1 class="gradient-text">${t(lesson.title)}</h1><p class="lead">${t(lesson.summary)}</p></div>
-        <div class="hero-visual"><img src="${lesson.image}" alt="${t(lesson.alt)}" width="1400" height="788"></div>
+        <div class="hero-copy"><div class="lesson-module-label">${iconMarkup(module.icon)}<p class="eyebrow">${ui[lang].module} ${module.number} · ${t(module.title)}</p></div><h1 class="gradient-text">${t(lesson.title)}</h1><p class="lead">${t(lesson.summary)}</p></div>
+        <div class="hero-visual"><img src="${lesson.image}" alt="${t(lesson.alt)}" width="1400" height="788" loading="eager"></div>
       </section>
+      ${learningPathMarkup()}
       <section class="section lesson-grid">
         <article class="panel objective-panel"><p class="eyebrow">${ui[lang].objective}</p><h2>${lang === "es" ? "Al finalizar podrás…" : "By the end, you will be able to…"}</h2><p>${t(lesson.objective)}</p></article>
         <div class="concept-stack">
@@ -511,6 +692,7 @@ function lessonMarkup(page) {
           <article class="panel"><h3>${ui[lang].essentials}</h3><ul class="key-list">${lesson.tips[lang].map((tip) => `<li>${tip}</li>`).join("")}</ul></article>
         </div>
       </section>
+      ${scenarioMarkup(page)}
       <section class="activity" data-activity-type="${lesson.activity.type}">
         <div class="activity-header"><p class="eyebrow">${ui[lang].activity}</p><h2>${t(lesson.activity.prompt)}</h2></div>
         ${activityMarkup(lesson.activity)}
@@ -563,11 +745,30 @@ function bindUI() {
   bindActivity();
 }
 
-function showFeedback(container, success) {
+function showFeedback(container, success, score, total) {
   const feedback = container.querySelector(".feedback");
   if (!feedback) return;
-  feedback.textContent = success ? ui[lang].correct : ui[lang].incorrect;
+  const explanation = lessonEnhancements[currentPage]?.feedback?.[success ? "correct" : "incorrect"];
+  feedback.innerHTML = `<strong>${success ? ui[lang].correct : ui[lang].incorrect}</strong><span><b>${ui[lang].why}</b> ${t(explanation)}</span>`;
   feedback.className = `feedback show ${success ? "success" : "error"}`;
+
+  const summary = container.querySelector(".result-summary");
+  if (!summary) return;
+  summary.hidden = false;
+  summary.classList.toggle("is-success", success);
+  summary.classList.toggle("needs-review", !success);
+  summary.querySelector("[data-result-score]").textContent = `${score}/${total}`;
+  summary.querySelector("[data-result-title]").textContent = `${success ? ui[lang].mastered : ui[lang].reinforce}: ${t(lessons[currentPage].title)}`;
+  summary.querySelector("[data-result-copy]").textContent = success
+    ? (lang === "es" ? "Continúa con la siguiente pantalla para aplicar este aprendizaje en otro contexto." : "Continue to the next screen to apply this learning in another context.")
+    : (lang === "es" ? "Revisa las ideas esenciales y el caso del campus antes de intentarlo nuevamente." : "Review the essential ideas and campus case before trying again.");
+}
+
+function showNoAnswer(container) {
+  const feedback = container.querySelector(".feedback");
+  if (!feedback) return;
+  feedback.textContent = ui[lang].noAnswer;
+  feedback.className = "feedback show error";
 }
 
 function bindActivity() {
@@ -578,14 +779,27 @@ function bindActivity() {
 
   container.querySelectorAll('[data-action="check-options"]').forEach((button) => button.addEventListener("click", () => {
     const inputs = [...container.querySelectorAll('input[name="activity-option"]')];
-    const success = inputs.every((input, index) => input.checked === Boolean(activity.options[index].correct));
-    showFeedback(container, success);
+    if (!inputs.some((input) => input.checked)) {
+      showNoAnswer(container);
+      return;
+    }
+    const isQuiz = activity.type === "quiz";
+    const score = isQuiz
+      ? (inputs.some((input, index) => input.checked && activity.options[index].correct) ? 1 : 0)
+      : inputs.reduce((total, input, index) => total + (input.checked === Boolean(activity.options[index].correct) ? 1 : 0), 0);
+    const total = isQuiz ? 1 : inputs.length;
+    showFeedback(container, score === total, score, total);
   }));
 
   container.querySelectorAll(".reveal-card").forEach((card) => card.addEventListener("click", () => {
     const text = card.querySelector("span");
     const open = card.classList.toggle("is-open");
+    card.setAttribute("aria-expanded", String(open));
+    if (open) card.dataset.seen = "true";
     text.textContent = open ? text.dataset.back : (lang === "es" ? "Mostrar recomendación" : "Show recommendation");
+    const cards = [...container.querySelectorAll(".reveal-card")];
+    const opened = cards.filter((item) => item.dataset.seen === "true").length;
+    if (opened === cards.length) showFeedback(container, true, opened, cards.length);
   }));
 
   container.querySelectorAll(".choice-card button").forEach((button) => button.addEventListener("click", () => {
@@ -594,8 +808,14 @@ function bindActivity() {
     card.classList.remove("correct", "incorrect");
     card.classList.add(correct ? "correct" : "incorrect");
     card.dataset.answered = correct ? "correct" : "incorrect";
+    card.querySelector(".choice-result").textContent = correct
+      ? (lang === "es" ? "Decisión correcta." : "Correct decision.")
+      : (lang === "es" ? "Revisa la relación entre el permiso y la función." : "Review the connection between the permission and its function.");
     const cards = [...container.querySelectorAll(".choice-card")];
-    if (cards.every((item) => item.dataset.answered)) showFeedback(container, cards.every((item) => item.dataset.answered === "correct"));
+    if (cards.every((item) => item.dataset.answered)) {
+      const score = cards.filter((item) => item.dataset.answered === "correct").length;
+      showFeedback(container, score === cards.length, score, cards.length);
+    }
   }));
 
   container.querySelectorAll("[data-move]").forEach((button) => button.addEventListener("click", () => {
@@ -606,7 +826,8 @@ function bindActivity() {
 
   container.querySelectorAll('[data-action="check-order"]').forEach((button) => button.addEventListener("click", () => {
     const ranks = [...container.querySelectorAll(".order-item")].map((item) => Number(item.dataset.rank));
-    showFeedback(container, ranks.every((rank, index) => rank === index + 1));
+    const score = ranks.filter((rank, index) => rank === index + 1).length;
+    showFeedback(container, score === ranks.length, score, ranks.length);
   }));
 
   container.querySelectorAll('[data-action="reset-activity"]').forEach((button) => button.addEventListener("click", () => render()));
